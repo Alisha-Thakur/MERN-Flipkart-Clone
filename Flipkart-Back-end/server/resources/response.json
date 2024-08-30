@@ -2,8 +2,9 @@
     "SUCCESS": "Success",
     "UNAUTHORIZED_ACCESS": "Unauthorized Access",
     "USER_NOT_FOUND": "User not found.",
-    "TOKEN_NOT_PROVIDED": "You are not authorized to excess this path.Please provide autherization token.",
+    "TOKEN_NOT_PROVIDED": "You are not authorized to excess this path. Please provide autherization token.",
     "INVALID_TOKEN": "Provided token is invalid",
+    "ADMIN_SIGNUP_SUCCESSFULLY": "Admin created successfully",
     "SIGNUP_SUCCESSFULLY": "User created successfully",
     "LOGIN_SUCCESSFULLY": "You are successfully login.",
     "LOGOUT_SUCCESSFULLY": "Logged out successfully!",
@@ -17,5 +18,7 @@
     "FAILED": "Failed",
     "USER_BLOCKED": "You are blocked from accessing Power House Gym Mohali.Please contact your administrator",
     "USER_EMAIL_NOT_VERIFIED": "Email address is not verified. Please verify your email before login.",
-    "ROLE_NOT_FOUND": "Role not found."
+    "ROLE_NOT_FOUND": "Role not found.",
+    "INCORRECT_CREDENTIALS": "Incorrect credentials.",
+    "REQUEST_FAILED": "Request has been failed."
 }

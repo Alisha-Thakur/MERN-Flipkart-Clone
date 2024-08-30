@@ -1,5 +1,7 @@
-const USER_ROUTES = require("./user");
+const AUTH_ROUTES = require("./auth");
+const ADMIN_AUTH_ROUTES = require("./admin/auth");
 
 module.exports = {
-  USER_ROUTES,
+  AUTH_ROUTES,
+  ADMIN_AUTH_ROUTES,
 };

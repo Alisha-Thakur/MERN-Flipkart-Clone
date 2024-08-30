@@ -37,6 +37,8 @@ const handleError = (res, error) => {
     }
   } else if (error.name === "ValidationError") {
     errorMsg = handleValidationError(error);
+  } else if (error.name == "ApplicationError") {
+    errorMsg = "Application error occured";
   }
 
   if (

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
@@ -48,6 +49,10 @@ const userSchema = new Schema(
     profilePicture: {
       type: String,
     },
+    deletedAt: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,
@@ -59,7 +64,29 @@ userSchema.virtual("password").set(function (password) {
 });
 
 userSchema.methods.authenticate = function (password) {
+  console.log("Checking for the password: ", password, this.hashPassword);
   return bcrypt.compareSync(password, this.hashPassword);
+};
+
+userSchema.methods.createLoginToken = async function (time, secret) {
+  return new Promise(async (resolve, reject) => {
+    const jwtSecret = secret || process.env.JWT_SECRET;
+    const options = {
+      expiresIn: time || process.env.JWT_EXPIRES_IN,
+    };
+
+    console.log("this: ", this);
+    console.log("this _id: ", this._id);
+
+    jwt.sign({ _id: this._id }, jwtSecret, options, function (err, token) {
+      console.log(token);
+      if (token) {
+        resolve(token);
+      } else {
+        reject(err);
+      }
+    });
+  });
 };
 
 module.exports = mongoose.model("user", userSchema);
